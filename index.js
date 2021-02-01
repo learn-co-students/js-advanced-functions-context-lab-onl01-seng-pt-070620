@@ -7,7 +7,77 @@
 
  As a result, the lessons for this function will pass *and* it will be available
  for you to use if you need it!
+
+
  */
+
+function createEmployeeRecord(employee) {
+    return {
+        firstName: employee[0],
+        familyName: employee[1],
+        title: employee[2],
+        payPerHour: employee[3],
+        timeInEvents: [],
+        timeOutEvents: []
+    }
+}
+
+function createEmployeeRecords(employees) {
+    return employees.map(element => createEmployeeRecord(element));
+}
+
+function createTimeInEvent(time) {
+    let newTimeInEvent = {
+        date: time.split(" ")[0],
+        hour: parseInt(time.split(" ")[1]),
+        type: "TimeIn" 
+    }
+
+    this.timeInEvents.push(newTimeInEvent); 
+    return this;   
+}
+
+function createTimeOutEvent(time) {
+    let newTimeOutEvent = {
+        date: time.split(" ")[0],
+        hour: parseInt(time.split(" ")[1]),
+        type: "TimeOut" 
+    }
+
+    this.timeOutEvents.push(newTimeOutEvent); 
+    return this; 
+}
+
+function hoursWorkedOnDate(day) {
+    let startTime = this.timeInEvents.find(function (element) {
+        return element.date === day;
+    })
+    let endTime = this.timeOutEvents.find(function(element) {
+        return element.date === day;
+    })
+
+    let hoursWorked = (endTime.hour - startTime.hour) / 100;
+    return hoursWorked;
+}
+
+function wagesEarnedOnDate(date) {
+    let hours = hoursWorkedOnDate.call(this, date);
+
+    return hours * this.payPerHour;
+}
+
+function calculatePayroll(allEmployees) {
+    let totalWages = allEmployees.reduce(function(accumulator, employee) {
+        return accumulator + allWagesFor.call(employee)
+    }, 0)
+
+    return totalWages;
+}
+
+function findEmployeeByFirstName(allEmployees, employeeFirst) {
+    return allEmployees.find(element => element.firstName === employeeFirst);
+}
+
 
 let allWagesFor = function () {
     let eligibleDates = this.timeInEvents.map(function (e) {
