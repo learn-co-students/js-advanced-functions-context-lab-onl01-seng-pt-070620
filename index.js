@@ -49,18 +49,25 @@ let timeOutHour;
 for (let event of this.timeInEvents) {
     if (event.date === dateString)
         timeInhour = event.hour / 100
-}
+        // refactor cleaner code
+        // let inEvent = this.timeInEvents.find(function(e){
+        // return e.date === soughtDate
+    }
 for (let event of this.timeOutEvents) {
     if (event.date === dateString)
         timeOutHour = event.hour / 100
+        // refactor cleaner code
+        // let outEvent = this.timeOutEvents.find(function(e){
+        // return e.date === soughtDate
 }
 let totalHours = (timeOutHour - timeInhour);
 return totalHours;
+// return (outEvent.hour - inEvent.hour) / 100
 }
 
 function wagesEarnedOnDate(dateString) {
 let totalWage = this.payPerHour * hoursWorkedOnDate.call(this, dateString)
-return totalWage
+return parseFloat(totalWage.toString())
 }
 
 function findEmployeeByFirstName(srcArray, firstName) {
