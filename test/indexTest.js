@@ -45,7 +45,7 @@ describe("The payroll system", function () {
     })
 
     describe("createEmployeeRecords", function () {
-      let employeeRecords;
+      // let employeeRecords;
 
       let twoRows = [
         ["moe", "sizlak", "barkeep", 2],
@@ -77,7 +77,7 @@ describe("The payroll system", function () {
     })
 
     describe("createTimeInEvent", function () {
-      let bpRecord, updatedBpRecord, newEvent
+      // let bpRecord, updatedBpRecord, newEvent
 
       it("creates the correct type", function () {
         let bpRecord = createEmployeeRecord(["Byron", "Poodle", "Mascot", 3])
@@ -109,7 +109,7 @@ describe("The payroll system", function () {
     })
 
     describe("createTimeOutEvent", function () {
-      let bpRecord, updatedBpRecord, newEvent
+      // let bpRecord, updatedBpRecord, newEvent
 
       it("creates the correct type", function () {
         let bpRecord = createEmployeeRecord(["Byron", "Poodle", "Mascot", 3])
@@ -313,7 +313,7 @@ describe("The payroll system", function () {
       ]
 
       describe("from several imported CSV structures", function () {
-        let employeeRecords
+        // let employeeRecords
 
         describe("calculatePayroll", function() {
           it("exists", function () {
